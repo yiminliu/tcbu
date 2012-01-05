@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.tc.bu.dao">
+
+	<class name="com.tc.bu.dao.GeneralSPResponse">
+		<id name="mvnemsgcode" column="mvnemsgcode"/>
+		<property name="status" column="status"/>
+		<property name="mvnemsg" column="mvnemsg"/>
+	</class>
+	
+</hibernate-mapping>	

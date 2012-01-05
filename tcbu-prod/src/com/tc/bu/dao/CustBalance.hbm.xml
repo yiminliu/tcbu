@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.tc.bu.dao">
+
+	<class name="com.tc.bu.dao.CustBalance">
+		<id name="accountNo" column="account_no"/>
+		<property name="kenanBalance" column="kenan_balance"/>
+		<property name="proRatedAmount" column="pro_rated_amount"/>
+		<property name="dataCharges" column="data_charges"/>
+		<property name="totalCharges" column="total_charges"/>
+		<property name="realBalance" column="real_balance"/>
+	</class>
+	
+	<sql-query name="get_cust_balance" callable="true">
+		<return class="com.tc.bu.dao.CustBalance">
+			<return-property name="accountNo" column="account_no"/>
+			<return-property name="kenanBalance" column="kenan_balance"/>
+			<return-property name="proRatedAmount" column="pro_rated_amount"/>
+			<return-property name="dataCharges" column="data_charges"/>
+			<return-property name="totalCharges" column="total_charges"/>
+			<return-property name="realBalance" column="real_balance"/>
+		</return>
+		{ call MVNE_KENAN_FETCH_PKG.GET_CUST_BALANCE( ?, :in_user_name, :in_account_no ) }
+	</sql-query>
+	
+</hibernate-mapping>	
